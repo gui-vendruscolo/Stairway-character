@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvbox6koyw8xn"]
+[gd_scene load_steps=3 format=3 uid="uid://dfvcc10vecsdj"]
 
 [ext_resource type="Texture2D" uid="uid://84d3vw76vsam" path="res://icon.svg" id="1_vim40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4loa0"]
-size = Vector2(1300, 20)
+size = Vector2(1288, 42)
 
 [node name="Ground" type="StaticBody2D"]
 collision_layer = 2
@@ -13,4 +13,5 @@ scale = Vector2(10, 0.5)
 texture = ExtResource("1_vim40")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(3, -11)
 shape = SubResource("RectangleShape2D_4loa0")

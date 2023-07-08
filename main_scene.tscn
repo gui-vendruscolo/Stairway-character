@@ -1,15 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0njtvn76werc"]
+[gd_scene load_steps=3 format=3 uid="uid://b0njtvn76werc"]
 
 [ext_resource type="Script" path="res://main_scene.gd" id="1_rhql8"]
-[ext_resource type="PackedScene" uid="uid://dfvcc10vecsdj" path="res://ground.tscn" id="2_s6yhj"]
-[ext_resource type="PackedScene" uid="uid://cjewyfro73wux" path="res://player.tscn" id="3_ukon5"]
+[ext_resource type="PackedScene" uid="uid://07wwdwd2641j" path="res://escada.tscn" id="2_ok4q2"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_rhql8")
 
-[node name="Ground" parent="." instance=ExtResource("2_s6yhj")]
-position = Vector2(531, 567)
+[node name="Escadas" type="Node2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("3_ukon5")]
-position = Vector2(473, 457)
-collision_mask = 3
+[node name="Escada" parent="Escadas" instance=ExtResource("2_ok4q2")]
+position = Vector2(287, 261)
+
+[node name="Escada2" parent="Escadas" instance=ExtResource("2_ok4q2")]
+position = Vector2(529, 251)

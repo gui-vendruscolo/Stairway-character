@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0njtvn76werc"]
+[gd_scene load_steps=3 format=3 uid="uid://b0njtvn76werc"]
 
 [ext_resource type="Script" path="res://main_scene.gd" id="1_rhql8"]
+[ext_resource type="PackedScene" uid="uid://07wwdwd2641j" path="res://escada.tscn" id="2_ok4q2"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_rhql8")
+
+[node name="Escadas" type="Node2D" parent="."]
+
+[node name="Escada" parent="Escadas" instance=ExtResource("2_ok4q2")]
+position = Vector2(287, 261)
+
+[node name="Escada2" parent="Escadas" instance=ExtResource("2_ok4q2")]
+position = Vector2(529, 251)

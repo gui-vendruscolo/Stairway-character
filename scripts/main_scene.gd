@@ -5,14 +5,34 @@ extends Node2D
 
 var active_escada
 
-func _ready():
-	pass
-	
+var top_limit    := 0
+var bottom_limit := WINDOW_HEIGHT
 
+const WINDOW_WIDTH   := 513
+const WINDOW_HEIGHT  := 586
+
+@onready var _Player = $MyPlayer
+
+
+func _ready():
+	$Camera.position = Vector2(WINDOW_WIDTH/2,WINDOW_HEIGHT/2)
+	$Camera.limit_left   = 0
+	$Camera.limit_right  = WINDOW_WIDTH
+	$Camera.limit_bottom = WINDOW_HEIGHT
 
 
 func _physics_process(delta):
-	pass
+	if _Player.position.y < top_limit:
+		var tween = get_tree().create_tween()
+		tween.tween_property($Camera, "global_position:y", $Camera.global_position.y-WINDOW_HEIGHT, 0.5)
+		top_limit    -= WINDOW_HEIGHT
+		bottom_limit -= WINDOW_HEIGHT
+	elif _Player.position.y > bottom_limit:
+		var tween = get_tree().create_tween()
+		tween.tween_property($Camera, "global_position:y", $Camera.global_position.y+WINDOW_HEIGHT, 0.5)
+		bottom_limit += WINDOW_HEIGHT
+		top_limit    += WINDOW_HEIGHT
+
 
 
 func _input(event):
@@ -31,10 +51,5 @@ func _input(event):
 				active_escada = e
 
 
-
-
-
-
-
-
-
+func _on_my_player_player_is_dead():
+	get_tree().change_scene_to_file("res://scenes/main_scene.tscn")

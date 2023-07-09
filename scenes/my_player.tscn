@@ -1,26 +1,27 @@
 [gd_scene load_steps=5 format=3 uid="uid://ckqo4w41x8u72"]
 
 [ext_resource type="Script" path="res://scripts/my_player.gd" id="1_6mv7s"]
-[ext_resource type="Texture2D" uid="uid://84d3vw76vsam" path="res://sprites/icon.svg" id="2_i1171"]
+[ext_resource type="Texture2D" uid="uid://c380n7o44uprh" path="res://sprites/mini-mario.png" id="2_rwp81"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jaq8y"]
-size = Vector2(80, 100)
+size = Vector2(14, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_115qr"]
-size = Vector2(100, 100)
+size = Vector2(12, 14)
 
 [node name="MyPlayer" type="CharacterBody2D"]
-collision_mask = 2
+collision_mask = 10
 script = ExtResource("1_6mv7s")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 1.5708
-texture = ExtResource("2_i1171")
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_rwp81")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jaq8y")
+debug_color = Color(0.568627, 0.486275, 0.168627, 0.419608)
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_115qr")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)

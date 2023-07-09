@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfvcc10vecsdj"]
 
-[ext_resource type="Texture2D" uid="uid://84d3vw76vsam" path="res://icon.svg" id="1_vim40"]
+[ext_resource type="Texture2D" uid="uid://84d3vw76vsam" path="res://sprites/icon.svg" id="1_vim40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4loa0"]
 size = Vector2(1288, 42)

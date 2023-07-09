@@ -5,7 +5,6 @@ extends Node2D
 
 var active_escada
 
-
 func _ready():
 	pass
 	

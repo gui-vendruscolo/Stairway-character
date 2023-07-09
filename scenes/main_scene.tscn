@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://xn1obl0kkma"]
 
-[ext_resource type="Script" path="res://main_scene.gd" id="1_rhql8"]
-[ext_resource type="PackedScene" uid="uid://07wwdwd2641j" path="res://escada.tscn" id="2_ok4q2"]
-[ext_resource type="PackedScene" uid="uid://dfvcc10vecsdj" path="res://ground.tscn" id="3_gedou"]
-[ext_resource type="PackedScene" uid="uid://ckqo4w41x8u72" path="res://my_player.tscn" id="5_4g13e"]
+[ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_rhql8"]
+[ext_resource type="PackedScene" uid="uid://07wwdwd2641j" path="res://scenes/escada.tscn" id="2_ok4q2"]
+[ext_resource type="PackedScene" uid="uid://dfvcc10vecsdj" path="res://scenes/ground.tscn" id="3_gedou"]
+[ext_resource type="PackedScene" uid="uid://ckqo4w41x8u72" path="res://scenes/my_player.tscn" id="5_4g13e"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_rhql8")

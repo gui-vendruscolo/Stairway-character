@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cdj2u2xcnlpa6"]
+
+[ext_resource type="FontFile" uid="uid://dnwyv87jf8stk" path="res://fonts/alagard.ttf" id="1_ug77k"]
+
+[resource]
+default_font = ExtResource("1_ug77k")
+default_font_size = 40
+Label/colors/font_color = Color(1, 1, 0.729412, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 5

@@ -1,0 +1,89 @@
+[gd_scene load_steps=3 format=3 uid="uid://b55dy8o3hbdwy"]
+
+[ext_resource type="Theme" uid="uid://cdj2u2xcnlpa6" path="res://themes/credit_theme.tres" id="1_jd6ai"]
+[ext_resource type="Texture2D" uid="uid://bqo5pcqvklju5" path="res://sprites/menu-background.png" id="2_i28rw"]
+
+[node name="GameCredits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -189.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("1_jd6ai")
+
+[node name="Label" type="Label" parent="GridContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Programming"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="GridContainer/VBoxContainer"]
+layout_mode = 2
+text = "Guilherme Vendruscolo"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="GridContainer/VBoxContainer"]
+layout_mode = 2
+text = "Luiz Felipe Triques"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("1_jd6ai")
+
+[node name="Label" type="Label" parent="GridContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Graphics"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="GridContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Breno"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="GridContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Guilherme Vendruscolo"
+horizontal_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("1_jd6ai")
+
+[node name="Label" type="Label" parent="GridContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Sound"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="GridContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Ana Vitória"
+horizontal_alignment = 1
+
+[node name="Menu-background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(529, 319)
+scale = Vector2(0.503906, 0.503906)
+texture = ExtResource("2_i28rw")

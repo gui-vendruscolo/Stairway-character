@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://dc7befw7yvl4p" path="res://audio/sussurro.mp3" id="12_cjeli"]
 [ext_resource type="AudioStream" uid="uid://c6kvlnel3ekrg" path="res://audio/Odin_AdobeStock_560768745_preview.mp3" id="13_ihwcd"]
 [ext_resource type="PackedScene" uid="uid://dxwfnpbqgyiir" path="res://scenes/eyes.tscn" id="14_3xwaq"]
+[ext_resource type="AudioStream" uid="uid://6m64uolsbste" path="res://audio/jump-scare-sound-effect.mp3" id="14_jyl32"]
 
 [sub_resource type="Animation" id="Animation_335qf"]
 resource_name = "final"
@@ -91,20 +92,16 @@ position = Vector2(20, -567)
 [node name="Final" type="Node2D" parent="."]
 
 [node name="BackgroundFinal" type="Sprite2D" parent="Final"]
+
 position = Vector2(-24, -589)
 texture = ExtResource("2_j57gg")
 centered = false
 
-[node name="BackgroundFinal2" type="Sprite2D" parent="Final"]
+[node name="BackgroundFinal2" type="Sprite2D" parent="."]
 position = Vector2(-24, -364)
 scale = Vector2(0.985965, 3.29903)
 texture = ExtResource("3_rvw60")
 centered = false
-
-[node name="Sereia_Monstro" type="Sprite2D" parent="Final"]
-position = Vector2(54, -21)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_mfeuu")
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(0.459821, 0.459821)
@@ -120,8 +117,12 @@ position = Vector2(480, 391)
 position = Vector2(32, 246)
 
 [node name="Trigger3" parent="Triggers" instance=ExtResource("3_frddg")]
-position = Vector2(258, 6)
+position = Vector2(258, -405)
 scale = Vector2(23.885, 0.2)
+
+[node name="Trigger4" parent="Triggers" instance=ExtResource("3_frddg")]
+position = Vector2(251, 0)
+scale = Vector2(24, 0.2)
 
 [node name="Escadas" type="Node2D" parent="."]
 
@@ -142,25 +143,44 @@ position = Vector2(347, 130)
 [node name="Escada5" parent="Escadas" instance=ExtResource("2_ok4q2")]
 position = Vector2(48, 75)
 
+[node name="Escada6" parent="Escadas" instance=ExtResource("2_ok4q2")]
+position = Vector2(291, -102)
+
+[node name="Escada7" parent="Escadas" instance=ExtResource("2_ok4q2")]
+position = Vector2(386, -223)
+
+[node name="Escada8" parent="Escadas" instance=ExtResource("2_ok4q2")]
+position = Vector2(470, -343)
+
 [node name="Grounds" type="Node2D" parent="."]
 
 [node name="Ground" parent="Grounds" instance=ExtResource("3_gedou")]
 position = Vector2(61, 573)
+texture_path = "res://sprites/ground.png"
 
 [node name="Ground2" parent="Grounds" instance=ExtResource("3_gedou")]
-position = Vector2(257, 9)
+position = Vector2(263, -405)
+texture_path = "res://sprites/ground.png"
 
 [node name="Ground3" parent="Grounds" instance=ExtResource("3_gedou")]
 position = Vector2(655, 533)
+texture_path = "res://sprites/ground_roxo.png"
 
 [node name="Ground4" parent="Grounds" instance=ExtResource("3_gedou")]
 position = Vector2(259, 429)
+texture_path = "res://sprites/ground.png"
 
 [node name="Ground5" parent="Grounds" instance=ExtResource("3_gedou")]
 position = Vector2(21, 282)
+texture_path = "res://sprites/ground_roxo.png"
 
 [node name="Ground6" parent="Grounds" instance=ExtResource("3_gedou")]
 position = Vector2(586, 247)
+texture_path = "res://sprites/ground.png"
+
+[node name="Ground7" parent="Grounds" instance=ExtResource("3_gedou")]
+position = Vector2(253, 0)
+texture_path = "res://sprites/ground_roxo.png"
 
 [node name="MyPlayer" parent="." instance=ExtResource("5_4g13e")]
 position = Vector2(41, 529)
@@ -185,31 +205,30 @@ time = 3.0
 
 [node name="bat_spawner3" parent="Spawners" instance=ExtResource("7_0x8xo")]
 position = Vector2(595, 244)
+time = 6.0
 
 [node name="bat_spawner4" parent="Spawners" instance=ExtResource("7_0x8xo")]
 position = Vector2(-161, 536)
 time = 1.0
 
+[node name="bat_spawner5" parent="Spawners" instance=ExtResource("7_0x8xo")]
+position = Vector2(808, 177)
+
+[node name="bat_spawner6" parent="Spawners" instance=ExtResource("7_0x8xo")]
+position = Vector2(-107, -107)
+time = 1.0
+
+[node name="bat_spawner7" parent="Spawners" instance=ExtResource("7_0x8xo")]
+position = Vector2(-103, -216)
+time = 1.5
+
+[node name="bat_spawner8" parent="Spawners" instance=ExtResource("7_0x8xo")]
+position = Vector2(-106, -331)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_bcois")
 }
-
-[node name="FinalCutscene" type="Node2D" parent="."]
-
-[node name="Up" type="ColorRect" parent="FinalCutscene"]
-offset_left = -193.0
-offset_top = -1017.0
-offset_right = 807.0
-offset_bottom = -617.0
-color = Color(0, 0, 0, 1)
-
-[node name="Down" type="ColorRect" parent="FinalCutscene"]
-offset_left = -168.0
-offset_top = 651.0
-offset_right = 832.0
-offset_bottom = 1051.0
-color = Color(0, 0, 0, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_cjeli")
@@ -220,6 +239,10 @@ autoplay = true
 stream = ExtResource("13_ihwcd")
 volume_db = -30.858
 autoplay = true
+
+[node name="Scream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_jyl32")
+volume_db = -25.0
 
 [node name="EyesContainer" type="Node2D" parent="."]
 
@@ -241,7 +264,42 @@ position = Vector2(289, 520)
 [node name="eyes6" parent="EyesContainer" instance=ExtResource("14_3xwaq")]
 position = Vector2(408, 478)
 
+[node name="ScreamTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="OtoTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Final" type="Node2D" parent="."]
+
+[node name="Sereia_Monstro" type="Sprite2D" parent="Final"]
+position = Vector2(54, -435)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_mfeuu")
+
+[node name="FinalCutscene" type="Node2D" parent="."]
+
+[node name="Up" type="ColorRect" parent="FinalCutscene"]
+z_index = 10
+offset_left = -193.0
+offset_top = -1017.0
+offset_right = 807.0
+offset_bottom = -617.0
+color = Color(0, 0, 0, 1)
+
+[node name="Down" type="ColorRect" parent="FinalCutscene"]
+z_index = 10
+offset_left = -168.0
+offset_top = 651.0
+offset_right = 832.0
+offset_bottom = 1051.0
+color = Color(0, 0, 0, 1)
+
 [connection signal="player_entered" from="Triggers/Trigger" to="." method="_on_trigger_player_entered"]
 [connection signal="player_entered" from="Triggers/Trigger2" to="." method="_on_trigger_2_player_entered"]
 [connection signal="player_exited" from="Triggers/Trigger3" to="." method="_on_trigger_3_player_exited"]
+[connection signal="player_entered" from="Triggers/Trigger4" to="." method="_on_trigger_4_player_entered"]
 [connection signal="player_is_dead" from="MyPlayer" to="." method="_on_my_player_player_is_dead"]
+[connection signal="timeout" from="ScreamTimer" to="." method="_on_scream_timer_timeout"]
+[connection signal="timeout" from="OtoTimer" to="." method="_on_timer_timeout"]

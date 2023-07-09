@@ -1,0 +1,117 @@
+[gd_scene load_steps=3 format=3 uid="uid://b55dy8o3hbdwy"]
+
+[ext_resource type="Theme" uid="uid://cdj2u2xcnlpa6" path="res://themes/credit_theme.tres" id="1_jd6ai"]
+[ext_resource type="Texture2D" uid="uid://bqo5pcqvklju5" path="res://sprites/menu-background.png" id="2_i28rw"]
+
+[node name="GameCredits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = -4.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_jd6ai")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("1_jd6ai")
+
+[node name="Label" type="Label" parent="GridContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Programming"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="GridContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Guilherme Vendruscolo"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="GridContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Luiz Felipe Triques"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("1_jd6ai")
+
+[node name="Label" type="Label" parent="GridContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Graphics"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="GridContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Breno"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="GridContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Guilherme Vendruscolo"
+horizontal_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("1_jd6ai")
+
+[node name="Label" type="Label" parent="GridContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Sound"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="GridContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Ana Vitória"
+horizontal_alignment = 1
+
+[node name="Thanks" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "
+Thanks for
+ playing!"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -738.5
+offset_top = -320.0
+offset_right = 497.5
+offset_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_i28rw")
+expand_mode = 1

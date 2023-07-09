@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://de562tfy3rkf0"]
+
+[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_3eu0p"]
+[ext_resource type="FontFile" uid="uid://cdex5wrggmmsl" path="res://fonts/Another Danger - Demo.otf" id="2_le3lc"]
+[ext_resource type="Theme" uid="uid://ca3hf816lapjl" path="res://themes/MenuTheme.tres" id="3_bhukk"]
+[ext_resource type="Texture2D" uid="uid://bqo5pcqvklju5" path="res://sprites/menu-background.png" id="4_53n17"]
+
+[sub_resource type="Theme" id="Theme_veit6"]
+default_font = ExtResource("2_le3lc")
+default_font_size = 75
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3eu0p")
+
+[node name="TitleContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -108.5
+offset_top = 175.0
+offset_right = 145.5
+offset_bottom = 383.0
+grow_horizontal = 2
+
+[node name="TitleText" type="RichTextLabel" parent="TitleContainer"]
+layout_mode = 0
+offset_left = -57.0
+offset_top = -13.0
+offset_right = 330.0
+offset_bottom = 251.0
+theme = SubResource("Theme_veit6")
+text = " Joguinho "
+
+[node name="Label" type="Label" parent="TitleContainer"]
+visible = false
+layout_mode = 0
+offset_right = 482.0
+offset_bottom = 206.0
+text = "Joguinho medonho 
+uuuuuuhhh"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 354.0
+offset_right = 408.0
+offset_bottom = 560.0
+scale = Vector2(0.965394, 1)
+theme = ExtResource("3_bhukk")
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Quit"
+
+[node name="Menu-background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(160, 292)
+scale = Vector2(0.505469, 0.505469)
+texture = ExtResource("4_53n17")
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

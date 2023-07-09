@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://xn1obl0kkma"]
+[gd_scene load_steps=17 format=3 uid="uid://xn1obl0kkma"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_rhql8"]
 [ext_resource type="Texture2D" uid="uid://cb7ygsgg8pu1b" path="res://sprites/background-baixo.png" id="2_1n1ko"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://ckqo4w41x8u72" path="res://scenes/my_player.tscn" id="5_4g13e"]
 [ext_resource type="PackedScene" uid="uid://dql2rke5v4kny" path="res://scenes/wall.tscn" id="6_1xsvj"]
 [ext_resource type="PackedScene" uid="uid://dddn7jnvu620w" path="res://scenes/bat_spawner.tscn" id="7_0x8xo"]
+[ext_resource type="AudioStream" uid="uid://dc7befw7yvl4p" path="res://audio/sussurro.mp3" id="12_cjeli"]
+[ext_resource type="AudioStream" uid="uid://c6kvlnel3ekrg" path="res://audio/Odin_AdobeStock_560768745_preview.mp3" id="13_ihwcd"]
 
 [sub_resource type="Animation" id="Animation_335qf"]
 resource_name = "final"
@@ -197,6 +199,16 @@ offset_top = 651.0
 offset_right = 832.0
 offset_bottom = 1051.0
 color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_cjeli")
+volume_db = -30.225
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_ihwcd")
+volume_db = -30.858
+autoplay = true
 
 [connection signal="player_entered" from="Triggers/Trigger" to="." method="_on_trigger_player_entered"]
 [connection signal="player_entered" from="Triggers/Trigger2" to="." method="_on_trigger_2_player_entered"]

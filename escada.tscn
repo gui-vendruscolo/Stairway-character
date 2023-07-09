@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://07wwdwd2641j"]
+[gd_scene load_steps=5 format=3 uid="uid://07wwdwd2641j"]
 
 [ext_resource type="Script" path="res://escada.gd" id="1_1ow7d"]
 [ext_resource type="Texture2D" uid="uid://84d3vw76vsam" path="res://icon.svg" id="1_v5l7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mi1fu"]
-size = Vector2(20, 240)
+size = Vector2(20, 60)
 
-[node name="Escada" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0biu"]
+size = Vector2(20, 220)
+
+[node name="Escada" type="CharacterBody2D"]
 collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_1ow7d")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -17,5 +21,12 @@ texture = ExtResource("1_v5l7h")
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mi1fu")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="Collision" type="CollisionShape2D" parent="Area"]
+shape = SubResource("RectangleShape2D_k0biu")
+debug_color = Color(0.592157, 0.541176, 0.227451, 0.419608)
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]

@@ -24,7 +24,8 @@ func _input(event):
 			var center = e.global_position
 			if (
 				(mouse_pos.x >= center.x-texture_size.x/2 and mouse_pos.x <= center.x+texture_size.x/2) and
-				(mouse_pos.y >= center.y-texture_size.y/2 and mouse_pos.y <= center.y+texture_size.y/2)
+				(mouse_pos.y >= center.y-texture_size.y/2 and mouse_pos.y <= center.y+texture_size.y/2) and
+				!e.active
 			):
 				e.active = true
 				if active_escada != null: active_escada.active = false

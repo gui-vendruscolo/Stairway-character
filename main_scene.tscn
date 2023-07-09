@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0njtvn76werc"]
+[gd_scene load_steps=5 format=3 uid="uid://xn1obl0kkma"]
 
 [ext_resource type="Script" path="res://main_scene.gd" id="1_rhql8"]
 [ext_resource type="PackedScene" uid="uid://07wwdwd2641j" path="res://escada.tscn" id="2_ok4q2"]
+[ext_resource type="PackedScene" uid="uid://dfvcc10vecsdj" path="res://ground.tscn" id="3_gedou"]
+[ext_resource type="PackedScene" uid="uid://ckqo4w41x8u72" path="res://my_player.tscn" id="5_4g13e"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_rhql8")
@@ -9,7 +11,17 @@ script = ExtResource("1_rhql8")
 [node name="Escadas" type="Node2D" parent="."]
 
 [node name="Escada" parent="Escadas" instance=ExtResource("2_ok4q2")]
-position = Vector2(287, 261)
+position = Vector2(339, 388)
 
 [node name="Escada2" parent="Escadas" instance=ExtResource("2_ok4q2")]
-position = Vector2(529, 251)
+position = Vector2(717, 302)
+dir = 1
+
+[node name="Ground" parent="." instance=ExtResource("3_gedou")]
+position = Vector2(387, 571)
+
+[node name="MyPlayer" parent="." instance=ExtResource("5_4g13e")]
+position = Vector2(97, 478)
+
+[node name="Ground2" parent="." instance=ExtResource("3_gedou")]
+position = Vector2(509, 294)

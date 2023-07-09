@@ -1,8 +1,14 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ca3hf816lapjl"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://ca3hf816lapjl"]
 
 [ext_resource type="FontFile" uid="uid://dnwyv87jf8stk" path="res://fonts/alagard.ttf" id="1_npx0p"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1o83g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16bei"]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f2th6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w3srv"]
 
 [resource]
 default_font = ExtResource("1_npx0p")
@@ -13,4 +19,10 @@ Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/colors/icon_focus_color = Color(1, 1, 1, 0)
 Button/colors/icon_hover_color = Color(1, 1, 1, 0)
 Button/constants/outline_size = 2
+Button/styles/focus = SubResource("StyleBoxEmpty_1o83g")
+Button/styles/hover = SubResource("StyleBoxEmpty_16bei")
 Button/styles/normal = SubResource("StyleBoxTexture_f2th6")
+Button/styles/pressed = SubResource("StyleBoxEmpty_w3srv")
+HSlider/constants/center_grabber = 50
+HSlider/icons/tick = null
+Label/colors/font_color = Color(1, 1, 0.729412, 1)

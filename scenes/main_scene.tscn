@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://xn1obl0kkma"]
+[gd_scene load_steps=14 format=3 uid="uid://xn1obl0kkma"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_rhql8"]
 [ext_resource type="Texture2D" uid="uid://cb7ygsgg8pu1b" path="res://sprites/background-baixo.png" id="2_1n1ko"]
@@ -24,7 +24,34 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1, 1.5, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-193, -1017), Vector2(-193, -600), Vector2(-193, -600), Vector2(-193, -600)]
+"values": [Vector2(-193, -1017), Vector2(-193, -580), Vector2(-193, -1017), Vector2(-193, -580)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FinalCutscene/Down:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-168, 651), Vector2(-168, -190), Vector2(-168, 651), Vector2(-168, -190)]
+}
+
+[sub_resource type="Animation" id="Animation_m5xmd"]
+resource_name = "open_eyes"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FinalCutscene/Up:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-193, -580), Vector2(-193, -1017)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -36,12 +63,13 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-168, 651), Vector2(-168, -190)]
+"values": [Vector2(-168, -190), Vector2(-168, 651)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bcois"]
 _data = {
-"final": SubResource("Animation_335qf")
+"final": SubResource("Animation_335qf"),
+"open_eyes": SubResource("Animation_m5xmd")
 }
 
 [node name="MainScene" type="Node2D"]
@@ -62,22 +90,6 @@ texture = ExtResource("3_mfeuu")
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("2_1n1ko")
 centered = false
-
-[node name="FinalCutscene" type="Node2D" parent="."]
-
-[node name="Up" type="ColorRect" parent="FinalCutscene"]
-offset_left = -193.0
-offset_top = -600.0
-offset_right = 807.0
-offset_bottom = -200.0
-color = Color(0, 0, 0, 1)
-
-[node name="Down" type="ColorRect" parent="FinalCutscene"]
-offset_left = -168.0
-offset_top = -190.0
-offset_right = 832.0
-offset_bottom = 210.0
-color = Color(0, 0, 0, 1)
 
 [node name="Triggers" type="Node2D" parent="."]
 
@@ -162,6 +174,22 @@ time = 1.0
 libraries = {
 "": SubResource("AnimationLibrary_bcois")
 }
+
+[node name="FinalCutscene" type="Node2D" parent="."]
+
+[node name="Up" type="ColorRect" parent="FinalCutscene"]
+offset_left = -193.0
+offset_top = -1017.0
+offset_right = 807.0
+offset_bottom = -617.0
+color = Color(0, 0, 0, 1)
+
+[node name="Down" type="ColorRect" parent="FinalCutscene"]
+offset_left = -168.0
+offset_top = 651.0
+offset_right = 832.0
+offset_bottom = 1051.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="player_entered" from="Triggers/Trigger" to="." method="_on_trigger_player_entered"]
 [connection signal="player_entered" from="Triggers/Trigger2" to="." method="_on_trigger_2_player_entered"]

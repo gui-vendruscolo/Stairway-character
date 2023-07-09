@@ -74,18 +74,19 @@ func _on_trigger_2_player_entered():
 func _on_trigger_3_player_exited():
 	$MyPlayer.get_node("AnimatedSprite2D").play("idle")
 	if $MyPlayer.scale.x >= 0:
-		$MyPlayer.scale.x = $MyPlayer.scale.y * -1
+		$MyPlayer.scale.x = $MyPlayer.scale.y * 1
 	$MyPlayer.set_physics_process(false)
 	
 	animate_something()
-	
-	var monster = load("res://sprites/monstro.png")
-	$Final/Sereia_Monstro.global_position.y -= 40
-	$Final/Sereia_Monstro.texture = monster
 	
 
 
 func animate_something():
 	$AnimationPlayer.play("final")
-
-
+	await $AnimationPlayer.animation_finished
+	var monster = load("res://sprites/monstro.png")
+	$Final/Sereia_Monstro.global_position.y -= 40
+	$Final/Sereia_Monstro.texture = monster
+	$AnimationPlayer.play("open_eyes")
+	await $AnimationPlayer.animation_finished
+	SceneTransition.change_scene("res://scenes/GameCredits.tscn")

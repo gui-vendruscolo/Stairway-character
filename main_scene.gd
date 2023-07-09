@@ -6,10 +6,10 @@ extends Node2D
 var active_escada
 
 var top_limit    := 0
-var bottom_limit := 1280
+var bottom_limit := WINDOW_HEIGHT
 
-const WINDOW_HEIGHT := 1280
-const WINDOW_WIDTH  := 1120
+const WINDOW_WIDTH   := 513
+const WINDOW_HEIGHT  := 586
 
 @onready var _Player = $MyPlayer
 
@@ -26,6 +26,8 @@ func _physics_process(delta):
 	if health <= 0:
 		die()
 	
+	print(_Player.position.y)
+	print(top_limit)
 	if _Player.position.y < top_limit:
 		var tween = get_tree().create_tween()
 		tween.tween_property($Camera, "global_position:y", $Camera.global_position.y-WINDOW_HEIGHT, 0.5)

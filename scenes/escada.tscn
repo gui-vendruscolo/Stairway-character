@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://scripts/escada.gd" id="1_1ow7d"]
 [ext_resource type="Texture2D" uid="uid://84d3vw76vsam" path="res://sprites/icon.svg" id="1_v5l7h"]
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mi1fu"]
 size = Vector2(20, 60)
 

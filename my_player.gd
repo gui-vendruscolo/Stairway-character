@@ -17,6 +17,9 @@ func _physics_process(delta):
 	if not is_on_floor() and !is_climbing:
 		velocity.y += gravity * delta
 
+	if is_on_wall():
+		x_direction = -x_direction
+
 	if is_climbing:
 		velocity.y = y_direction * SPEED
 		velocity.x = 0

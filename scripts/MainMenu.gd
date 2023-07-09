@@ -12,7 +12,9 @@ func _process(delta):
 
 
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/main_scene.tscn")
+	SceneTransition.change_scene("res://scenes/main_scene.tscn")
+	$VBoxContainer/StartButton.set_focus_mode(Control.FOCUS_NONE)
+	
 	
 func _on_options_button_pressed():
 	pass

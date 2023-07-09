@@ -7,9 +7,17 @@ var active := false
 enum Dir {UP = -1, DOWN = 1}
 @export var dir: Dir = Dir.UP
 
+@export var y_scale: float = 1
 
 var step := 10.0
 var body_is_climbing := false
+
+
+func scale_set():
+	$Sprite.scale.y = y_scale
+	$Area/Collision.scale.y = y_scale
+	$Collision.scale.y = y_scale
+
 
 func _ready():
 	pass
@@ -19,13 +27,13 @@ func _physics_process(delta):
 	if active:
 		high_light(true)
 		if !body_is_climbing:
-			var dir_x = Input.get_axis("ui_left", "ui_right")
+			var dir_x = Input.get_axis("left", "right")
 			if dir_x != 0:
 				velocity.x = dir_x * SPEED
 			else:
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 			
-			var dir_y = Input.get_axis("ui_up", "ui_down")
+			var dir_y = Input.get_axis("up", "down")
 			velocity.y = dir_y * SPEED
 		else:
 			velocity = Vector2.ZERO

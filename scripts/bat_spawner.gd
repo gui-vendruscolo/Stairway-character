@@ -13,6 +13,10 @@ var main_scene
 func _ready():
 	main_scene = get_tree().root.get_node("MainScene")
 	assert(WINDOW_WIDTH == get_viewport_rect().size.x)
+	# start_time()
+
+func start_time():
+	$Timer.start(time)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,4 +37,11 @@ func spawn_bat():
 	else: # x < 0
 		bat.dir = 1
 		bat.to_die = WINDOW_WIDTH+50
-	main_scene.add_child(bat)
+		bat.get_node("AnimatedSprite2D").flip_h = true
+	
+	main_scene.call_deferred("add_child", bat)
+
+
+
+
+

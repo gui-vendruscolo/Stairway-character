@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var _Animations = $AnimatedSprite2D
 
-@export var speed: int = 140
+@export var speed: int = 150
 
 var dir := 1
 
@@ -25,7 +25,3 @@ func _physics_process(delta): #TODOIF: Make this better
 		assert(to_die == 513+50)
 		if global_position.x >= 513+50:
 			queue_free()
-
-
-func _process(delta):
-	pass

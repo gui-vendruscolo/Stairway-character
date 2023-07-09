@@ -18,6 +18,11 @@ func _ready():
 	$Camera.limit_left   = 0
 	$Camera.limit_right  = WINDOW_WIDTH
 	$Camera.limit_bottom = WINDOW_HEIGHT
+	
+	for e in escadas:
+		e.scale_set()
+	
+	$Spawners/bat_spawner4.start_time()
 
 
 func _physics_process(delta):
@@ -26,11 +31,11 @@ func _physics_process(delta):
 		tween.tween_property($Camera, "global_position:y", $Camera.global_position.y-WINDOW_HEIGHT, 0.5)
 		top_limit    -= WINDOW_HEIGHT
 		bottom_limit -= WINDOW_HEIGHT
-	elif _Player.position.y > bottom_limit:
-		var tween = get_tree().create_tween()
-		tween.tween_property($Camera, "global_position:y", $Camera.global_position.y+WINDOW_HEIGHT, 0.5)
-		bottom_limit += WINDOW_HEIGHT
-		top_limit    += WINDOW_HEIGHT
+	elif _Player.position.y > bottom_limit+30:
+		_Player.die()
+
+	if Input.is_action_just_pressed("reset"):
+		SceneTransition.change_scene("res://scenes/main_scene.tscn")
 
 
 
@@ -51,7 +56,7 @@ func _input(event):
 
 
 func _on_my_player_player_is_dead():
-	get_tree().change_scene_to_file("res://scenes/main_scene.tscn")
+	SceneTransition.change_scene("res://scenes/main_scene.tscn")
 
 
 
@@ -65,3 +70,17 @@ func _on_my_player_player_is_dead():
 
 
 
+
+
+func _on_trigger_player_entered():
+	$Spawners/bat_spawner.start_time()
+	$Spawners/bat_spawner.spawn_bat()
+	$Spawners/bat_spawner2.start_time()
+	$Spawners/bat_spawner2.spawn_bat()
+	
+	
+	
+
+
+func _on_trigger_2_player_entered():
+	$Spawners/bat_spawner3.spawn_bat()

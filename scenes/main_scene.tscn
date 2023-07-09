@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://xn1obl0kkma"]
+[gd_scene load_steps=9 format=3 uid="uid://xn1obl0kkma"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_rhql8"]
 [ext_resource type="Texture2D" uid="uid://bhm0p8bf84jq" path="res://sprites/jogo1.png" id="2_inipf"]
 [ext_resource type="PackedScene" uid="uid://07wwdwd2641j" path="res://scenes/escada.tscn" id="2_ok4q2"]
+[ext_resource type="PackedScene" uid="uid://cpe22pvyn4t8c" path="res://trigger.tscn" id="3_frddg"]
 [ext_resource type="PackedScene" uid="uid://dfvcc10vecsdj" path="res://scenes/ground.tscn" id="3_gedou"]
 [ext_resource type="PackedScene" uid="uid://ckqo4w41x8u72" path="res://scenes/my_player.tscn" id="5_4g13e"]
 [ext_resource type="PackedScene" uid="uid://dql2rke5v4kny" path="res://scenes/wall.tscn" id="6_1xsvj"]
@@ -15,23 +16,56 @@ script = ExtResource("1_rhql8")
 texture = ExtResource("2_inipf")
 centered = false
 
+[node name="Triggers" type="Node2D" parent="."]
+
+[node name="Trigger" parent="Triggers" instance=ExtResource("3_frddg")]
+position = Vector2(480, 391)
+
+[node name="Trigger2" parent="Triggers" instance=ExtResource("3_frddg")]
+position = Vector2(32, 246)
+
 [node name="Escadas" type="Node2D" parent="."]
 
 [node name="Escada" parent="Escadas" instance=ExtResource("2_ok4q2")]
-position = Vector2(339, 388)
+position = Vector2(190, 453)
+y_scale = 0.4
 
 [node name="Escada2" parent="Escadas" instance=ExtResource("2_ok4q2")]
-position = Vector2(447, 333)
+position = Vector2(484, 473)
+y_scale = 0.6
 
-[node name="Ground" parent="." instance=ExtResource("3_gedou")]
-position = Vector2(252, 629)
+[node name="Escada3" parent="Escadas" instance=ExtResource("2_ok4q2")]
+position = Vector2(36, 337)
+
+[node name="Escada4" parent="Escadas" instance=ExtResource("2_ok4q2")]
+position = Vector2(347, 130)
+
+[node name="Escada5" parent="Escadas" instance=ExtResource("2_ok4q2")]
+position = Vector2(48, 75)
+
+[node name="Grounds" type="Node2D" parent="."]
+
+[node name="Ground" parent="Grounds" instance=ExtResource("3_gedou")]
+position = Vector2(61, 573)
+
+[node name="Ground2" parent="Grounds" instance=ExtResource("3_gedou")]
+position = Vector2(257, -2)
+
+[node name="Ground3" parent="Grounds" instance=ExtResource("3_gedou")]
+position = Vector2(655, 533)
+
+[node name="Ground4" parent="Grounds" instance=ExtResource("3_gedou")]
+position = Vector2(259, 429)
+
+[node name="Ground5" parent="Grounds" instance=ExtResource("3_gedou")]
+position = Vector2(21, 282)
+
+[node name="Ground6" parent="Grounds" instance=ExtResource("3_gedou")]
+position = Vector2(586, 247)
 
 [node name="MyPlayer" parent="." instance=ExtResource("5_4g13e")]
-position = Vector2(144, 493)
+position = Vector2(41, 529)
 scale = Vector2(3, 3)
-
-[node name="Ground2" parent="." instance=ExtResource("3_gedou")]
-position = Vector2(256, -20)
 
 [node name="Camera" type="Camera2D" parent="."]
 
@@ -44,7 +78,19 @@ position = Vector2(516, 293)
 [node name="Spawners" type="Node2D" parent="."]
 
 [node name="bat_spawner" parent="Spawners" instance=ExtResource("7_0x8xo")]
-position = Vector2(590, 488)
-time = 5.0
+position = Vector2(648, 387)
 
+[node name="bat_spawner2" parent="Spawners" instance=ExtResource("7_0x8xo")]
+position = Vector2(-137, 377)
+time = 3.0
+
+[node name="bat_spawner3" parent="Spawners" instance=ExtResource("7_0x8xo")]
+position = Vector2(625, 244)
+
+[node name="bat_spawner4" parent="Spawners" instance=ExtResource("7_0x8xo")]
+position = Vector2(-161, 536)
+time = 1.0
+
+[connection signal="player_entered" from="Triggers/Trigger" to="." method="_on_trigger_player_entered"]
+[connection signal="player_entered" from="Triggers/Trigger2" to="." method="_on_trigger_2_player_entered"]
 [connection signal="player_is_dead" from="MyPlayer" to="." method="_on_my_player_player_is_dead"]

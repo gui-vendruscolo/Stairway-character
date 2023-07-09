@@ -38,7 +38,6 @@ func _physics_process(delta):
 		SceneTransition.change_scene("res://scenes/main_scene.tscn")
 
 
-
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		var mouse_pos := get_global_mouse_position()
@@ -68,7 +67,9 @@ func _on_trigger_player_entered():
 
 func _on_trigger_2_player_entered():
 	$Spawners/bat_spawner3.spawn_bat()
-
+	$Spawners/bat_spawner3.start_time()
+	$Spawners/bat_spawner5.spawn_bat()
+	$Spawners/bat_spawner5.start_time()
 
 
 func _on_trigger_3_player_exited():
@@ -78,7 +79,6 @@ func _on_trigger_3_player_exited():
 	$MyPlayer.set_physics_process(false)
 	
 	animate_something()
-	
 
 
 func animate_something():
@@ -88,5 +88,18 @@ func animate_something():
 	$Final/Sereia_Monstro.global_position.y -= 40
 	$Final/Sereia_Monstro.texture = monster
 	$AnimationPlayer.play("open_eyes")
+	$ScreamTimer.start()
 	await $AnimationPlayer.animation_finished
+	$OtoTimer.start()
+
+
+
+
+
+
+func _on_scream_timer_timeout():
+	$Scream.play()
+
+
+func _on_timer_timeout():
 	SceneTransition.change_scene("res://scenes/GameCredits.tscn")

@@ -4,7 +4,6 @@ const SPEED = 300.0
 
 var active := false
 
-
 enum Dir {UP = -1, DOWN = 1}
 @export var dir: Dir = Dir.UP
 
@@ -43,7 +42,6 @@ func high_light(b: bool):
 		modulate = Color.RED
 	else:
 		modulate = Color.WHITE
-
 
 
 func _on_area_body_entered(body):

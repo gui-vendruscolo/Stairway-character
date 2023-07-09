@@ -11,10 +11,11 @@ var outside_screen := true
 var to_die
 
 func _ready():
+	$AnimatedSprite2D.play("flying")
 	pass
 
 
-func _physics_process(delta):
+func _physics_process(delta): #TODOIF: Make this better
 	global_position.x += dir*speed*delta
 	
 	if to_die == -50:

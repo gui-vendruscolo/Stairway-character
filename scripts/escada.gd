@@ -59,4 +59,8 @@ func _on_area_body_exited(body):
 	if body.is_climbing:
 		body.set_collision_mask_value(2,true)
 		body.is_climbing = false
-		body_is_climbing = false
+		$Timer.start()
+
+
+func _on_timer_timeout():
+	body_is_climbing = false

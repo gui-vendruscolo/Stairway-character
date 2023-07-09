@@ -1,7 +1,41 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckqo4w41x8u72"]
+[gd_scene load_steps=9 format=3 uid="uid://ckqo4w41x8u72"]
 
 [ext_resource type="Script" path="res://scripts/my_player.gd" id="1_6mv7s"]
-[ext_resource type="Texture2D" uid="uid://c380n7o44uprh" path="res://sprites/mini-mario.png" id="2_rwp81"]
+[ext_resource type="Texture2D" uid="uid://bnvl0cfs4d6sp" path="res://sprites/only_walking_big.png" id="2_ak4qm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32v6x"]
+atlas = ExtResource("2_ak4qm")
+region = Rect2(0, 0, 232, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iea6l"]
+atlas = ExtResource("2_ak4qm")
+region = Rect2(232, 0, 232, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgcw8"]
+atlas = ExtResource("2_ak4qm")
+region = Rect2(464, 0, 232, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m8q3d"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32v6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iea6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgcw8")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jaq8y"]
 size = Vector2(14, 16)
@@ -13,8 +47,16 @@ size = Vector2(12, 14)
 collision_mask = 10
 script = ExtResource("1_6mv7s")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(-0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_m8q3d")
+animation = &"walking"
+frame_progress = 0.026153
+
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_rwp81")
+visible = false
+texture = ExtResource("2_ak4qm")
+hframes = 3
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jaq8y")

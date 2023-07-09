@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 
+@onready var _Animations = $AnimatedSprite2D
+
 const SPEED = 300.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -33,6 +35,7 @@ func _physics_process(delta):
 	else:
 		if x_direction:
 			velocity.x = x_direction * SPEED
+			_Animations.play("walking")
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 

@@ -1,8 +1,5 @@
 extends Node2D
 
-
-@onready var escadas = $Escadas.get_children()
-
 var active_escada
 
 var top_limit    := 0
@@ -11,6 +8,8 @@ var bottom_limit := WINDOW_HEIGHT
 const WINDOW_WIDTH   := 513
 const WINDOW_HEIGHT  := 586
 
+
+@onready var escadas = $Escadas.get_children()
 @onready var _Player = $MyPlayer
 
 
@@ -53,3 +52,16 @@ func _input(event):
 
 func _on_my_player_player_is_dead():
 	get_tree().change_scene_to_file("res://scenes/main_scene.tscn")
+
+
+
+
+
+
+
+
+
+
+
+
+

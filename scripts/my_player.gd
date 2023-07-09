@@ -19,8 +19,6 @@ var health := 1
 signal player_is_dead
 
 func _physics_process(delta):
-	if health <= 0:
-		die()
 
 	# Add the gravity.
 	if not is_on_floor() and !is_climbing:
@@ -53,3 +51,19 @@ func turn_on_move():
 func die():
 	# TODO: Death animation
 	player_is_dead.emit()
+
+
+func _on_area_2d_area_entered(area):
+	health -= 1
+	if health <= 0:
+		die()
+
+
+
+
+
+
+
+
+
+

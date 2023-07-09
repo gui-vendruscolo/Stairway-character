@@ -41,7 +41,7 @@ animations = [{
 size = Vector2(14, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_115qr"]
-size = Vector2(12, 14)
+size = Vector2(10, 12)
 
 [node name="MyPlayer" type="CharacterBody2D"]
 collision_mask = 10
@@ -51,7 +51,7 @@ script = ExtResource("1_6mv7s")
 scale = Vector2(-0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_m8q3d")
 animation = &"walking"
-frame_progress = 0.026153
+frame_progress = 0.294033
 
 [node name="Sprite" type="Sprite2D" parent="."]
 visible = false
@@ -63,7 +63,10 @@ shape = SubResource("RectangleShape2D_jaq8y")
 debug_color = Color(0.568627, 0.486275, 0.168627, 0.419608)
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_115qr")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://xn1obl0kkma"]
+[gd_scene load_steps=8 format=3 uid="uid://xn1obl0kkma"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_rhql8"]
 [ext_resource type="Texture2D" uid="uid://bhm0p8bf84jq" path="res://sprites/jogo1.png" id="2_inipf"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dfvcc10vecsdj" path="res://scenes/ground.tscn" id="3_gedou"]
 [ext_resource type="PackedScene" uid="uid://ckqo4w41x8u72" path="res://scenes/my_player.tscn" id="5_4g13e"]
 [ext_resource type="PackedScene" uid="uid://dql2rke5v4kny" path="res://scenes/wall.tscn" id="6_1xsvj"]
+[ext_resource type="PackedScene" uid="uid://dddn7jnvu620w" path="res://scenes/bat_spawner.tscn" id="7_0x8xo"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_rhql8")
@@ -39,5 +40,11 @@ position = Vector2(0, 292)
 
 [node name="WallRight" parent="." instance=ExtResource("6_1xsvj")]
 position = Vector2(516, 293)
+
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="bat_spawner" parent="Spawners" instance=ExtResource("7_0x8xo")]
+position = Vector2(590, 488)
+time = 5.0
 
 [connection signal="player_is_dead" from="MyPlayer" to="." method="_on_my_player_player_is_dead"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://jl0d1rjpok3o"]
+
+[ext_resource type="Script" path="res://scripts/bat.gd" id="1_otlls"]
+[ext_resource type="Texture2D" uid="uid://84d3vw76vsam" path="res://sprites/icon.svg" id="2_dxcp5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2w8us"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dxcp5")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wao8o"]
+
+[node name="Bat" type="Area2D"]
+collision_layer = 32
+script = ExtResource("1_otlls")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_2w8us")
+animation = &"flying"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wao8o")

@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxwfnpbqgyiir"]
+
+[ext_resource type="Texture2D" uid="uid://crlgx6sl75r1v" path="res://sprites/eyes2.png" id="1_60a28"]
+[ext_resource type="Script" path="res://scripts/eyes.gd" id="1_n3vmj"]
+[ext_resource type="Texture2D" uid="uid://cg6eitrtfqya" path="res://sprites/eyes1.png" id="2_awkyj"]
+[ext_resource type="Texture2D" uid="uid://bxaakktm5iovj" path="res://sprites/eyes3.png" id="3_cmmp7"]
+
+[sub_resource type="Animation" id="Animation_2i7rl"]
+resource_name = "blinking"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_awkyj"), ExtResource("1_60a28"), ExtResource("3_cmmp7"), ExtResource("1_60a28"), ExtResource("2_awkyj")]
+}
+
+[sub_resource type="Animation" id="Animation_0b6hy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_60a28")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aawef"]
+_data = {
+"RESET": SubResource("Animation_0b6hy"),
+"blinking": SubResource("Animation_2i7rl")
+}
+
+[node name="eyes" type="Node2D"]
+script = ExtResource("1_n3vmj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 59.0
+offset_bottom = 26.0
+texture = ExtResource("1_60a28")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
+libraries = {
+"": SubResource("AnimationLibrary_aawef")
+}

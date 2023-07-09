@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://xn1obl0kkma"]
+[gd_scene load_steps=18 format=3 uid="uid://xn1obl0kkma"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_rhql8"]
 [ext_resource type="Texture2D" uid="uid://cb7ygsgg8pu1b" path="res://sprites/background-baixo.png" id="2_1n1ko"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dddn7jnvu620w" path="res://scenes/bat_spawner.tscn" id="7_0x8xo"]
 [ext_resource type="AudioStream" uid="uid://dc7befw7yvl4p" path="res://audio/sussurro.mp3" id="12_cjeli"]
 [ext_resource type="AudioStream" uid="uid://c6kvlnel3ekrg" path="res://audio/Odin_AdobeStock_560768745_preview.mp3" id="13_ihwcd"]
+[ext_resource type="PackedScene" uid="uid://dxwfnpbqgyiir" path="res://scenes/eyes.tscn" id="14_3xwaq"]
 
 [sub_resource type="Animation" id="Animation_335qf"]
 resource_name = "final"
@@ -209,6 +210,26 @@ autoplay = true
 stream = ExtResource("13_ihwcd")
 volume_db = -30.858
 autoplay = true
+
+[node name="EyesContainer" type="Node2D" parent="."]
+
+[node name="eyes" parent="EyesContainer" instance=ExtResource("14_3xwaq")]
+position = Vector2(356, 268)
+
+[node name="eyes2" parent="EyesContainer" instance=ExtResource("14_3xwaq")]
+position = Vector2(356, 349)
+
+[node name="eyes3" parent="EyesContainer" instance=ExtResource("14_3xwaq")]
+position = Vector2(74, 198)
+
+[node name="eyes4" parent="EyesContainer" instance=ExtResource("14_3xwaq")]
+position = Vector2(74, 465)
+
+[node name="eyes5" parent="EyesContainer" instance=ExtResource("14_3xwaq")]
+position = Vector2(298, 465)
+
+[node name="eyes6" parent="EyesContainer" instance=ExtResource("14_3xwaq")]
+position = Vector2(423, 121)
 
 [connection signal="player_entered" from="Triggers/Trigger" to="." method="_on_trigger_player_entered"]
 [connection signal="player_entered" from="Triggers/Trigger2" to="." method="_on_trigger_2_player_entered"]

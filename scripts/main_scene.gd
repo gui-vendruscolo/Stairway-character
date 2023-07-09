@@ -103,3 +103,9 @@ func _on_scream_timer_timeout():
 
 func _on_timer_timeout():
 	SceneTransition.change_scene("res://scenes/GameCredits.tscn")
+
+
+func _on_trigger_4_player_entered():
+	$Spawners/bat_spawner6.start_time()
+	$Spawners/bat_spawner7.start_time()
+	$Spawners/bat_spawner8.start_time()

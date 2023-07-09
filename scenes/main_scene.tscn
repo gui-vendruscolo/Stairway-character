@@ -1,20 +1,83 @@
-[gd_scene load_steps=9 format=3 uid="uid://xn1obl0kkma"]
+[gd_scene load_steps=13 format=3 uid="uid://xn1obl0kkma"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_rhql8"]
-[ext_resource type="Texture2D" uid="uid://bhm0p8bf84jq" path="res://sprites/jogo1.png" id="2_inipf"]
+[ext_resource type="Texture2D" uid="uid://cb7ygsgg8pu1b" path="res://sprites/background-baixo.png" id="2_1n1ko"]
+[ext_resource type="Texture2D" uid="uid://bc4crh176lwnf" path="res://sprites/background.png" id="2_ewoe4"]
 [ext_resource type="PackedScene" uid="uid://07wwdwd2641j" path="res://scenes/escada.tscn" id="2_ok4q2"]
 [ext_resource type="PackedScene" uid="uid://cpe22pvyn4t8c" path="res://trigger.tscn" id="3_frddg"]
 [ext_resource type="PackedScene" uid="uid://dfvcc10vecsdj" path="res://scenes/ground.tscn" id="3_gedou"]
+[ext_resource type="Texture2D" uid="uid://d4ar4kpvjp4t7" path="res://sprites/sereia.png" id="3_mfeuu"]
 [ext_resource type="PackedScene" uid="uid://ckqo4w41x8u72" path="res://scenes/my_player.tscn" id="5_4g13e"]
 [ext_resource type="PackedScene" uid="uid://dql2rke5v4kny" path="res://scenes/wall.tscn" id="6_1xsvj"]
 [ext_resource type="PackedScene" uid="uid://dddn7jnvu620w" path="res://scenes/bat_spawner.tscn" id="7_0x8xo"]
 
+[sub_resource type="Animation" id="Animation_335qf"]
+resource_name = "final"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FinalCutscene/Up:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-193, -1017), Vector2(-193, -600), Vector2(-193, -600), Vector2(-193, -600)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FinalCutscene/Down:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-168, 651), Vector2(-168, -190)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bcois"]
+_data = {
+"final": SubResource("Animation_335qf")
+}
+
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_rhql8")
 
-[node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("2_inipf")
+[node name="Final" type="Node2D" parent="."]
+
+[node name="BackgroundFinal" type="Sprite2D" parent="Final"]
+position = Vector2(2.08165e-12, -586)
+texture = ExtResource("2_ewoe4")
 centered = false
+
+[node name="Sereia_Monstro" type="Sprite2D" parent="Final"]
+position = Vector2(54, -21)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_mfeuu")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_1n1ko")
+centered = false
+
+[node name="FinalCutscene" type="Node2D" parent="."]
+
+[node name="Up" type="ColorRect" parent="FinalCutscene"]
+offset_left = -193.0
+offset_top = -600.0
+offset_right = 807.0
+offset_bottom = -200.0
+color = Color(0, 0, 0, 1)
+
+[node name="Down" type="ColorRect" parent="FinalCutscene"]
+offset_left = -168.0
+offset_top = -190.0
+offset_right = 832.0
+offset_bottom = 210.0
+color = Color(0, 0, 0, 1)
 
 [node name="Triggers" type="Node2D" parent="."]
 
@@ -23,6 +86,10 @@ position = Vector2(480, 391)
 
 [node name="Trigger2" parent="Triggers" instance=ExtResource("3_frddg")]
 position = Vector2(32, 246)
+
+[node name="Trigger3" parent="Triggers" instance=ExtResource("3_frddg")]
+position = Vector2(258, 6)
+scale = Vector2(23.885, 0.2)
 
 [node name="Escadas" type="Node2D" parent="."]
 
@@ -49,7 +116,7 @@ position = Vector2(48, 75)
 position = Vector2(61, 573)
 
 [node name="Ground2" parent="Grounds" instance=ExtResource("3_gedou")]
-position = Vector2(257, -2)
+position = Vector2(257, 9)
 
 [node name="Ground3" parent="Grounds" instance=ExtResource("3_gedou")]
 position = Vector2(655, 533)
@@ -85,12 +152,18 @@ position = Vector2(-137, 377)
 time = 3.0
 
 [node name="bat_spawner3" parent="Spawners" instance=ExtResource("7_0x8xo")]
-position = Vector2(625, 244)
+position = Vector2(595, 244)
 
 [node name="bat_spawner4" parent="Spawners" instance=ExtResource("7_0x8xo")]
 position = Vector2(-161, 536)
 time = 1.0
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bcois")
+}
+
 [connection signal="player_entered" from="Triggers/Trigger" to="." method="_on_trigger_player_entered"]
 [connection signal="player_entered" from="Triggers/Trigger2" to="." method="_on_trigger_2_player_entered"]
+[connection signal="player_exited" from="Triggers/Trigger3" to="." method="_on_trigger_3_player_exited"]
 [connection signal="player_is_dead" from="MyPlayer" to="." method="_on_my_player_player_is_dead"]

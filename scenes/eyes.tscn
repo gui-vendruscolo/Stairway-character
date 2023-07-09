@@ -46,6 +46,7 @@ _data = {
 script = ExtResource("1_n3vmj")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.435294)
 offset_right = 59.0
 offset_bottom = 26.0
 texture = ExtResource("1_60a28")

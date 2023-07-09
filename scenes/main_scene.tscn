@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://xn1obl0kkma"]
+[gd_scene load_steps=19 format=3 uid="uid://xn1obl0kkma"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_rhql8"]
-[ext_resource type="Texture2D" uid="uid://cb7ygsgg8pu1b" path="res://sprites/background-baixo.png" id="2_1n1ko"]
+[ext_resource type="PackedScene" uid="uid://dqmrt36tesqa0" path="res://scenes/fog.tscn" id="2_bifed"]
+[ext_resource type="Texture2D" uid="uid://bc4crh176lwnf" path="res://sprites/background.png" id="2_ewoe4"]
 [ext_resource type="Texture2D" uid="uid://bfvn8603sd2kb" path="res://sprites/generic_bg.png" id="2_j57gg"]
 [ext_resource type="PackedScene" uid="uid://07wwdwd2641j" path="res://scenes/escada.tscn" id="2_ok4q2"]
 [ext_resource type="PackedScene" uid="uid://cpe22pvyn4t8c" path="res://trigger.tscn" id="3_frddg"]
@@ -79,6 +80,14 @@ _data = {
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_rhql8")
 
+[node name="fog" parent="." instance=ExtResource("2_bifed")]
+z_index = 1
+position = Vector2(25, 42)
+
+[node name="fog2" parent="." instance=ExtResource("2_bifed")]
+z_index = 1
+position = Vector2(20, -567)
+
 [node name="Final" type="Node2D" parent="."]
 
 [node name="BackgroundFinal" type="Sprite2D" parent="Final"]
@@ -98,7 +107,8 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("3_mfeuu")
 
 [node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("2_1n1ko")
+scale = Vector2(0.459821, 0.459821)
+texture = ExtResource("2_ewoe4")
 centered = false
 
 [node name="Triggers" type="Node2D" parent="."]
@@ -214,22 +224,22 @@ autoplay = true
 [node name="EyesContainer" type="Node2D" parent="."]
 
 [node name="eyes" parent="EyesContainer" instance=ExtResource("14_3xwaq")]
-position = Vector2(356, 268)
+position = Vector2(80, 331)
 
 [node name="eyes2" parent="EyesContainer" instance=ExtResource("14_3xwaq")]
-position = Vector2(356, 349)
+position = Vector2(450, 310)
 
 [node name="eyes3" parent="EyesContainer" instance=ExtResource("14_3xwaq")]
-position = Vector2(74, 198)
+position = Vector2(33, 244)
 
 [node name="eyes4" parent="EyesContainer" instance=ExtResource("14_3xwaq")]
-position = Vector2(74, 465)
+position = Vector2(22, 469)
 
 [node name="eyes5" parent="EyesContainer" instance=ExtResource("14_3xwaq")]
-position = Vector2(298, 465)
+position = Vector2(289, 520)
 
 [node name="eyes6" parent="EyesContainer" instance=ExtResource("14_3xwaq")]
-position = Vector2(423, 121)
+position = Vector2(408, 478)
 
 [connection signal="player_entered" from="Triggers/Trigger" to="." method="_on_trigger_player_entered"]
 [connection signal="player_entered" from="Triggers/Trigger2" to="." method="_on_trigger_2_player_entered"]

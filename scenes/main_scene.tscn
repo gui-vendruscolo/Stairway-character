@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://xn1obl0kkma"]
+[gd_scene load_steps=15 format=3 uid="uid://xn1obl0kkma"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_rhql8"]
 [ext_resource type="Texture2D" uid="uid://cb7ygsgg8pu1b" path="res://sprites/background-baixo.png" id="2_1n1ko"]
-[ext_resource type="Texture2D" uid="uid://bc4crh176lwnf" path="res://sprites/background.png" id="2_ewoe4"]
+[ext_resource type="Texture2D" uid="uid://bfvn8603sd2kb" path="res://sprites/generic_bg.png" id="2_j57gg"]
 [ext_resource type="PackedScene" uid="uid://07wwdwd2641j" path="res://scenes/escada.tscn" id="2_ok4q2"]
 [ext_resource type="PackedScene" uid="uid://cpe22pvyn4t8c" path="res://trigger.tscn" id="3_frddg"]
 [ext_resource type="PackedScene" uid="uid://dfvcc10vecsdj" path="res://scenes/ground.tscn" id="3_gedou"]
 [ext_resource type="Texture2D" uid="uid://d4ar4kpvjp4t7" path="res://sprites/sereia.png" id="3_mfeuu"]
+[ext_resource type="Texture2D" uid="uid://dgv6en3bhd223" path="res://sprites/generic_bg1.png" id="3_rvw60"]
 [ext_resource type="PackedScene" uid="uid://ckqo4w41x8u72" path="res://scenes/my_player.tscn" id="5_4g13e"]
 [ext_resource type="PackedScene" uid="uid://dql2rke5v4kny" path="res://scenes/wall.tscn" id="6_1xsvj"]
 [ext_resource type="PackedScene" uid="uid://dddn7jnvu620w" path="res://scenes/bat_spawner.tscn" id="7_0x8xo"]
@@ -78,8 +79,14 @@ script = ExtResource("1_rhql8")
 [node name="Final" type="Node2D" parent="."]
 
 [node name="BackgroundFinal" type="Sprite2D" parent="Final"]
-position = Vector2(2.08165e-12, -586)
-texture = ExtResource("2_ewoe4")
+position = Vector2(-24, -589)
+texture = ExtResource("2_j57gg")
+centered = false
+
+[node name="BackgroundFinal2" type="Sprite2D" parent="Final"]
+position = Vector2(-24, -364)
+scale = Vector2(0.985965, 3.29903)
+texture = ExtResource("3_rvw60")
 centered = false
 
 [node name="Sereia_Monstro" type="Sprite2D" parent="Final"]
